@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import Dashboard from './Dashboard'
-import Categories from './Categories'
+import Details from './Details'
 
 import Heading from './components/Heading'
 import ListContainer from './components/ListContainer'
@@ -21,6 +21,7 @@ function HomeScreen({navigation}) {
       <Text style={[styles.largeHeading, styles.lightGolden]}>Welcome to Tech Store</Text>
       {/* <Heading level="3">Welcome to Tech Store</Heading> */}
       <Button style={styles.golden} title='Dashboard' onPress={() => navigation.navigate('Dashboard')} />
+      <Button style={styles.golden} title='details' onPress={() => navigation.navigate('Details')} />
       <ListContainer />
       {/* <Switch
         trackColor={{ false: "#767577", true: "#81b0ff" }}
@@ -41,7 +42,7 @@ export default function Home() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options = {{title: 'Tech Store'}} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
-        <Stack.Screen name="Categories" component={Categories} />
+        <Stack.Screen name="Details" component={Details} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -6,11 +6,11 @@ import Heading from './components/Heading'
 
 import styles from './appStyles'
 
-export default function Categories() {
+export default function Details() {
   
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.largeHeading}>Update Both!</Text>
+      <Text style={styles.largeHeading}>Details page</Text>
       <Heading level="3">This is a heading</Heading>
     </SafeAreaView>
   );

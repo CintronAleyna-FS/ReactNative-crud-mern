@@ -21,11 +21,23 @@ const styles = StyleSheet.create({
         color: 'rgb(215, 178, 157)'
     },
     dashContainer: {
-        flex: 1,
+        flex:1, 
         backgroundColor: '#282c34',
         alignItems: 'start',
-        justifyContent: 'start'
+        justifyContent: 'start',
       },
+      inputField: {
+        height: 40,
+        width: 200,
+        backgroundColor: '#ededed',
+        paddingHorizontal:20,
+        marginVertical: 10
+      },
+      formContainer: {
+        display: "flex",
+        alignSelf: "center",
+        paddingVertical: 100,
+      }
 });
 
 export default styles;
