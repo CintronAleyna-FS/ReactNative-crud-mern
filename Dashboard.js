@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView, Text, View, TextInput, Button, TouchableOpacity, Pressable} from 'react-native';
 
 import ListContainer from './components/ListContainer';
-// import Heading from './components/Heading'
 
 import styles from './appStyles'
-
 
 export default function Dashboard({navigation}) {
   const [products, setProducts] = useState(null);
@@ -91,7 +89,7 @@ export default function Dashboard({navigation}) {
           onChangeText={(text)=> handleDescriptionChanges(text)}
         />
         <Pressable style={[styles.btn]} onPress={() => createProduct(name, price, description)}>
-          <Text>Update</Text>
+          <Text>Create</Text>
         </Pressable>
       </View>
     </SafeAreaView>

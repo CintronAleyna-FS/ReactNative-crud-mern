@@ -25,8 +25,7 @@ export default function Details({route}) {
     name: '',
     description: '',
     price: ''
-  })
-  
+  })  
 
   const navigations = useNavigation();
 
@@ -75,6 +74,31 @@ export default function Details({route}) {
       setLoading(false)
     }
   }
+// UPDATE PRODUCT
+const updateProduct = async () => {
+  try {
+    await fetch(`https://productcrud-wdv463.herokuapp.com/api/v1/products/${productId}`,{
+      method: 'PATCH',
+      headers: {
+        "Content-Type": "application/json",
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(
+        {
+          "name": name, 
+          "price": price,
+          "description": description
+        }
+      )
+    })
+              .then(res => res.json())
+              .then(getProducts())
+  } catch (error) {
+    setError(error.message || "Unexpected Error")
+  } finally {
+    setLoading(false)
+  }
+}
   const handleNameChanges = (text) => {
     setName(text)
   }
@@ -97,6 +121,7 @@ export default function Details({route}) {
          style={styles.inputField} 
           placeholder="Name"
           onChangeText={(text)=> handleNameChanges(text)}
+          defaultValue={values.name}
          />
         <TextInput
           style={styles.inputField} 
@@ -105,6 +130,7 @@ export default function Details({route}) {
         />
         <TextInput
           style={styles.inputField} 
+          defaultValue={values.description}
           placeholder="Description"
           onChangeText={(text)=> handleDescriptionChanges(text)}
         />
