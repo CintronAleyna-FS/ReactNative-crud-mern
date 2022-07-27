@@ -6,8 +6,10 @@ import Heading from './components/Heading'
 
 import styles from './appStyles'
 
-export default function Details() {
-  
+export default function Details({route}) {
+  const { productId } = route.params;
+  console.log("hey "+productId)
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.largeHeading}>Details page</Text>

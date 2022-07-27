@@ -1,10 +1,18 @@
-import { StyleSheet, FlatList, View } from 'react-native';
+import { StyleSheet, FlatList, View, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import ListItem from './ListItem'
 
 export default function ListContainer({data}) {
+  const navigations = useNavigation();
+  const renderItem = ({ item }) => ( 
+    <TouchableOpacity  onPress={() => {navigations.navigate('Details', {
+        productId: item._id
+      })
+    }}> 
+        <ListItem>{item.name}</ListItem>
+    </TouchableOpacity>
 
-  const renderItem = ({ item }) => (
-    <ListItem>{item.name}</ListItem>
   );
 
   return (
