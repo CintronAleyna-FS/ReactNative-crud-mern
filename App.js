@@ -18,10 +18,9 @@ function HomeScreen({navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={[styles.largeHeading, styles.lightGolden]}>Welcome to Tech Store</Text>
+      <Text style={[styles.largeHeading, styles.lightGolden, styles.padding]}>Welcome to Tech Store</Text>
       {/* <Heading level="3">Welcome to Tech Store</Heading> */}
       <Button style={styles.golden} title='Dashboard' onPress={() => navigation.navigate('Dashboard')} />
-      <Button style={styles.golden} title='details' onPress={() => navigation.navigate('Details')} />
       <ListContainer />
       {/* <Switch
         trackColor={{ false: "#767577", true: "#81b0ff" }}

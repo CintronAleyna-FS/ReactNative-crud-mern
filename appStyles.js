@@ -37,7 +37,25 @@ const styles = StyleSheet.create({
         display: "flex",
         alignSelf: "center",
         paddingVertical: 100,
+      },
+      btn: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 12,
+        paddingHorizontal: 22,
+        borderRadius: 4,
+        elevation: 3,
+        backgroundColor: 'rgb(215, 178, 157)',
+      },
+      padding: {
+        paddingVertical: 2,
+        paddingHorizontal: 4
+      },
+      margin: {
+        marginHorizontal: 4,
+        marginVertical: 4
       }
+
 });
 
 export default styles;

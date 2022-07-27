@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, Text, View, TextInput, Button, TouchableOpacity} from 'react-native';
+import { SafeAreaView, Text, View, TextInput, Button, TouchableOpacity, Pressable} from 'react-native';
 
 import ListContainer from './components/ListContainer';
 // import Heading from './components/Heading'
@@ -10,14 +10,11 @@ import styles from './appStyles'
 export default function Dashboard({navigation}) {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(false);
-  
-  
-  const [values, setValues] = useState({
-    name: '',
-    description: '',
-    price: ''
-  })
-  
+  const [error, setError] = useState(null);
+  const [name, setName] = useState(null);
+  const [price, setPrice] = useState(null);
+  const [description, setDescription] = useState(null);
+
   let ignore = false;
   useEffect(() => {
     if (!ignore) {
@@ -63,38 +60,39 @@ export default function Dashboard({navigation}) {
       setLoading(false)
     }
   }
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    createProduct();
-  }
 
-  const handleInputChanges = (event) => {
-    event.persist()
-    setValues((values) => ({
-      ...values,
-      [event.target.name]: event.target.value
-    }))
+  const handleNameChanges = (text) => {
+    setName(text)
+  }
+  const handlePriceChanges = (text) => {
+    setPrice(text)
+  }
+  const handleDescriptionChanges = (text) => {
+    setDescription(text)
   }
   return (
     <SafeAreaView style={styles.dashContainer}>
-      <Text style={[styles.largeHeading, styles.golden]}>Tech Store Products</Text>
+      <Text style={[styles.largeHeading, styles.golden, styles.padding]}>Tech Store Products</Text>
       <ListContainer data={products} ></ListContainer>
       <View style={styles.formContainer}>
         <TextInput 
          style={styles.inputField} 
           placeholder="Name"
+          onChangeText={(text)=> handleNameChanges(text)}
          />
         <TextInput
           style={styles.inputField} 
-          secureTextEntry={true}
           placeholder="Price"
+          onChangeText={(text)=> handlePriceChanges(text)}
         />
         <TextInput
           style={styles.inputField} 
-          secureTextEntry={true}
           placeholder="Description"
+          onChangeText={(text)=> handleDescriptionChanges(text)}
         />
-        <Button title="create" onPress={() => createProduct("aley", "2", "aleylaeyey")}></Button>
+        <Pressable style={[styles.btn]} onPress={() => createProduct(name, price, description)}>
+          <Text>Update</Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );

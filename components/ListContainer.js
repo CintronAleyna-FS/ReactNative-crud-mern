@@ -2,6 +2,7 @@ import { StyleSheet, FlatList, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import ListItem from './ListItem'
+import style from '../appStyles'
 
 export default function ListContainer({data}) {
   const navigations = useNavigation();
@@ -17,6 +18,7 @@ export default function ListContainer({data}) {
 
   return (
     <FlatList 
+        styles={style.padding}
         data={data}
         renderItem={renderItem}
         keyExtractor={item => item._id}
